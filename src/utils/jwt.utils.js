@@ -15,4 +15,20 @@ const generateToken = async (data, expires) => {
   return token;
 };
 
-export default generateToken;
+/**
+ * @description Verify user token
+ * @param {string} token
+ * @param {object} res
+ * @returns {object} decoded
+ */
+const verifyToken = async (token, res) => jwt.verify(token, JWT_SECRET, (err, decoded) => {
+  if (err) {
+    return res.status(401).json({
+      status: 401,
+      message: 'Verification error',
+    });
+  }
+  return decoded;
+});
+
+export { generateToken, verifyToken };
