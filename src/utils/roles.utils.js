@@ -5,6 +5,7 @@ const access = new AccessControl();
 const roles = (() => {
   access.grant('client')
     .readOwn('client')
+    .readAny('product')
     .createOwn('client')
     .deleteOwn('client');
 
@@ -19,7 +20,9 @@ const roles = (() => {
     .createAny('employee')
     .updateAny('client')
     .updateAny('employee')
+    .updateAny('product')
     .deleteAny('client')
+    .deleteAny('product')
     .deleteAny('employee');
   return access;
 })();
