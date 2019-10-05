@@ -1,5 +1,5 @@
 {
-  "name": "mock-premier-league",
+  "name": "supermart",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Chiazokam/Mock-Premier-League.git"
+    "url": "git+https://github.com/Chiazokam/RBAC.git"
   },
   "author": "zokky",
   "license": "ISC",
