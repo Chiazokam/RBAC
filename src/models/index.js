@@ -8,6 +8,7 @@ const options = {
   useUnifiedTopology: true,
   useNewUrlParser: true,
   useCreateIndex: true,
+  useFindAndModify: false,
 };
 const connectDb = () => mongoose.connect(process.env.DATABASE_URL, options);
 const models = {

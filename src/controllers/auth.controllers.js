@@ -3,6 +3,12 @@ import User from '../models/user';
 import { hashPassword, isPasswordValid } from '../utils/password.utils';
 import generateToken from '../utils/jwt.utils';
 
+/**
+ * @description User signup controller
+ * @param {object} req
+ * @param {object} res
+ * @returns {object} res
+ */
 const signup = async (req, res) => {
   try {
     const {
@@ -18,19 +24,25 @@ const signup = async (req, res) => {
     });
     const token = await generateToken({ id: newUser._id }, '30d');
     await newUser.save();
-    res.status(201).json({
+    return res.status(201).json({
       status: 201,
       data: newUser,
       token,
     });
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       status: 500,
       message: error.message,
     });
   }
 };
 
+/**
+ * @description User signin controller
+ * @param {object} req
+ * @param {object} res
+ * @returns {object} res
+ */
 const signin = async (req, res) => {
   try {
     const { email, password } = req.body;
