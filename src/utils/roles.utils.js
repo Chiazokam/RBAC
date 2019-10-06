@@ -18,6 +18,7 @@ const roles = (() => {
     .createAny('client')
     .createAny('employee')
     .createAny('product')
+    .createAny('message')
     .createAny('category')
     .updateAny('client')
     .updateAny('employee')
