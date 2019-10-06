@@ -1,6 +1,31 @@
 import Product from '../models/product';
 
 /**
+ * @description Create Product controller
+ * @param {object} req
+ * @param {object} res
+ * @returns {object} res
+ */
+const createProduct = async (req, res) => {
+  try {
+    const { name, category } = req.body;
+
+    const product = new Product({ name, category });
+    await product.save();
+    return res.status(201).json({
+      status: 201,
+      data: product,
+      message: 'Successfully created a product',
+    });
+  } catch (error) {
+    return res.status(500).json({
+      status: 500,
+      message: error.message,
+    });
+  }
+};
+
+/**
  * @description Get Products controller
  * @param {object} req
  * @param {object} res
@@ -84,5 +109,5 @@ const deleteProduct = async (req, res) => {
 };
 
 export {
-  getProducts, updateProduct, deleteProduct,
+  createProduct, getProducts, updateProduct, deleteProduct,
 };
